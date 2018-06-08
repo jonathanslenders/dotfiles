@@ -1,0 +1,13 @@
+[user]
+    name = Jonathan Slenders
+    email = jonathan@slenders.be
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+[push]
+    default = current
+[core]
+    editor = vim

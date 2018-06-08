@@ -21,3 +21,9 @@ set clipboard=unnamed
 " Custom key bindings.
 imap jj <esc>
 imap hh <esc>
+
+" Pretty command-line option matching.
+set wildmenu
+
+" Always keep three lines above or below the cursor.
+set scrolloff=3
