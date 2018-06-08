@@ -13,6 +13,7 @@ set shiftwidth=4
 set expandtab
 
 " Show tabs and trailing spaces.
+set list
 set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
 
 " Use system clipboard by default
