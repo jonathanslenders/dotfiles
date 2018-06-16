@@ -28,3 +28,6 @@ set wildmenu
 
 " Always keep three lines above or below the cursor.
 set scrolloff=3
+
+" Show the cursor position all the time.
+set ruler
