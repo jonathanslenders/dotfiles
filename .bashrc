@@ -13,8 +13,11 @@ export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
 # Colors in "ip addr"
 alias ip="ip -color"
 
-# Colors in "ls"
-alias ls="ls --color=auto"
+# Colors in "ls".
+alias ls="ls -F --color=auto"
+
+# Colors for "grep".
+export GREP_OPTIONS='--color=auto'
 
 # Include virtualenvwrapper (Python).
 if [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
@@ -29,3 +32,6 @@ export HISTFILESIZE=-1
 if [ -e /usr/bin/most ]; then
     export PAGER=most
 fi
+
+# Always append to bash history.
+shopt -s histappend
