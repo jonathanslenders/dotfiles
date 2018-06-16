@@ -28,9 +28,9 @@ fi
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 
-# Use 'most' as a pager when installed.
+# Set our custom pager. (pypager or most).
 if [ -e /usr/bin/most ]; then
-    export PAGER=most
+    export PAGER=~/.pager.sh
 fi
 
 # Always append to bash history.

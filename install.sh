@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp .bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore ~/
+cp .bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore .pager.sh ~/
