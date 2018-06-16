@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp .bashrc .inputrc .vimrc .tmux.conf .gitconfig ~/
+cp .bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore ~/
