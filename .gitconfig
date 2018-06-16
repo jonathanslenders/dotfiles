@@ -9,5 +9,7 @@
     ui = auto
 [push]
     default = current
+[pull]
+    rebase = true
 [core]
     editor = vim
