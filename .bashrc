@@ -17,7 +17,7 @@ alias ip="ip -color"
 alias ls="ls -F --color=auto"
 
 # Colors for "grep".
-export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=auto'
 
 # Include virtualenvwrapper (Python).
 if [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
