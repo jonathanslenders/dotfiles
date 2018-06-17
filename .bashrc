@@ -29,9 +29,7 @@ export HISTSIZE=-1
 export HISTFILESIZE=-1
 
 # Set our custom pager. (pypager or most).
-if [ -e /usr/bin/most ]; then
-    export PAGER=~/.pager.sh
-fi
+export PAGER=~/.pager.sh
 
 # Always append to bash history.
 shopt -s histappend
