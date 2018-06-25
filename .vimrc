@@ -1,3 +1,5 @@
+set nocompatible
+
 " Syntax highlighting on
 syntax on
 
@@ -32,3 +34,28 @@ set scrolloff=3
 
 " Show the cursor position all the time.
 set ruler
+
+" Only one space after a period.
+set nojoinspaces
+
+" Make ~ an operator.
+set tildeop
+
+" Vertical lines.
+set colorcolumn=80
+
+" Save certain things when exiting. (Should be after 'set nocompatible'.)
+set viminfo=%,<800,'100,/100,:100,h,f0,n~/.vim/viminfo
+"           | |    |    |    |    | |  + viminfo file path
+"           | |    |    |    |    | + file marks 0-9,A-Z 0=NOT stored
+"           | |    |    |    |    + disable 'hlsearch' loading viminfo
+"           | |    |    |    + command-line history saved
+"           | |    |    + search history saved
+"           | |    + files marks saved
+"           | + lines saved each register (old name for <, vi6.2)
+"           + save/restore buffer list
+
+" Go back to the last cursor position after opening a file.
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif

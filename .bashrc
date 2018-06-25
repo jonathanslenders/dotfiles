@@ -33,3 +33,6 @@ export PAGER=~/.pager.sh
 
 # Always append to bash history.
 shopt -s histappend
+
+# Ignore system wide .vimrc.
+alias vim="vim -u ~/.vimrc"
