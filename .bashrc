@@ -47,6 +47,12 @@ alias vim="vim -u ~/.vimrc"
 # Include .bashrc.local
 . ~/.bashrc.local
 
+# Add ~/bin to $PATH
+export PATH=$PATH:~/bin/
+
+# Aliases.
+alias l=exa
+
 # Function for reinstalling dotfiles.
 reinstall_dotfiles() {
     pushd ~/git/dotfiles > /dev/null
