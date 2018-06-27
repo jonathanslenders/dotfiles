@@ -1,2 +1,12 @@
 My dotfiles
 ===========
+
+
+Install
+-------
+
+mkdir -p ~/git/
+cd ~/git/
+git clone https://github.com/jonathanslenders/dotfiles.git
+cd dotfiles
+./install.sh

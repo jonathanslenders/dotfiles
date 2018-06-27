@@ -42,7 +42,16 @@ set nojoinspaces
 set tildeop
 
 " Vertical lines.
-set colorcolumn=80
+"set colorcolumn=80
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235
+
+" Molokai color scheme.
+colorscheme molokai
+
+" Don't erase the background color.
+" See: https://sunaku.github.io/vim-256color-bce.html
+set t_ut=
 
 " Save certain things when exiting. (Should be after 'set nocompatible'.)
 set viminfo=%,<800,'100,/100,:100,h,f0,n~/.vim/viminfo

@@ -8,7 +8,11 @@ export EDITOR=vi
 export TERM=xterm-256color
 
 # Colored prompt.
-export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+}
+
+export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
 
 # Colors in "ip addr"
 alias ip="ip -color"
@@ -19,10 +23,10 @@ alias ls="ls -F --color=auto"
 # Colors for "grep".
 alias grep='grep --color=auto'
 
-# Include virtualenvwrapper (Python).
-if [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-fi
+# # Include virtualenvwrapper (Python).
+# if [ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+#     . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# fi
 
 # Infinite history.
 export HISTSIZE=-1
@@ -36,3 +40,16 @@ shopt -s histappend
 
 # Ignore system wide .vimrc.
 alias vim="vim -u ~/.vimrc"
+
+# Include virtualenvwrapper.
+# . ~/bin/virtualenvwrapper.sh
+
+# Include .bashrc.local
+. ~/.bashrc.local
+
+# Function for reinstalling dotfiles.
+reinstall_dotfiles() {
+    pushd ~/git/dotfiles > /dev/null
+    . ./install.sh
+    popd > /dev/null
+}
