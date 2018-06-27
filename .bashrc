@@ -51,7 +51,7 @@ alias vim="vim -u ~/.vimrc"
 export PATH=$PATH:~/bin/
 
 # Aliases.
-alias l=exa
+alias l="exa -l"
 
 # Function for reinstalling dotfiles.
 reinstall_dotfiles() {
