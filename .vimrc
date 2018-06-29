@@ -1,5 +1,9 @@
 set nocompatible
 
+" Open files using utf-8 by default instead of latin-1
+" See: https://unix.stackexchange.com/questions/23389/how-can-i-set-vims-default-encoding-to-utf-8/23414
+set encoding=utf-8
+
 " Syntax highlighting on
 syntax on
 
