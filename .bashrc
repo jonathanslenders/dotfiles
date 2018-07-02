@@ -12,13 +12,14 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
-export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
+export PS1="\[\e[0;32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
 
 # Colors in "ip addr"
 alias ip="ip -color"
 
 # Colors in "ls".
 alias ls="ls -F --color=auto"
+eval $(dircolors ~/.dircolors/dircolors.molokai)
 
 # Colors for "grep".
 alias grep='grep --color=auto'
