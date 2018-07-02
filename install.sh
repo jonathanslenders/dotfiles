@@ -3,7 +3,7 @@
 mkdir -p ~/bin
 mkdir -p ~/.vim
 
-cp .bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore .pager.sh ~/
+cp .bash_profile .bashrc .inputrc .vimrc .tmux.conf .gitconfig .gitignore .pager.sh ~/
 cp -r bin/* ~/bin/
 cp -r .vim/* ~/.vim/
 

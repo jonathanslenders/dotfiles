@@ -7,4 +7,8 @@ if [ $(which  pypager) ]; then
 # If 'most' is installed, use this as pager.
 elif [ -e /usr/bin/most ]; then
     /usr/bin/most "$@"
+
+# Otherwise, fall back to less.
+else
+    less "$@"
 fi
