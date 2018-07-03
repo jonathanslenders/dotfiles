@@ -1,15 +1,23 @@
 [user]
     name = Jonathan Slenders
-    email = jonathan@slenders.be
+    # Place email into ~/.gitconfig.local
+    # (Work/home have different mail.)
+
 [color]
     ui = auto
     diff = auto
     status = auto
     branch = auto
     ui = auto
+
 [push]
     default = current
+
 [pull]
     rebase = true
+
 [core]
     editor = vim
+
+[include]
+    path = ~/.gitconfig.local
