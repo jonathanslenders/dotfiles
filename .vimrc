@@ -17,7 +17,9 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set smartindent
+
+" Automatically load indent rules according to file type.
+filetype indent on
 
 " Show tabs and trailing spaces.
 set list
