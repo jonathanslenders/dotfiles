@@ -10,3 +10,10 @@ cd ~/git/
 git clone https://github.com/jonathanslenders/dotfiles.git
 cd dotfiles
 ./install.sh
+
+
+Inspiration
+-----------
+
+Among others:
+- https://remysharp.com/2018/08/23/cli-improved

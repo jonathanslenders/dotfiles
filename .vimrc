@@ -12,6 +12,7 @@ set number
 
 " Highlight search
 set hlsearch
+set incsearch
 
 " Indentation (4 spaces)
 set tabstop=4
@@ -55,6 +56,9 @@ highlight ColorColumn ctermbg=235
 " Molokai color scheme.
 colorscheme molokai
 
+" Selection color.
+highlight Visual ctermbg=230
+
 " Don't erase the background color.
 " See: https://sunaku.github.io/vim-256color-bce.html
 set t_ut=
@@ -74,3 +78,6 @@ set viminfo=%,<800,'100,/100,:100,h,f0,n~/.vim/viminfo
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+
+hi pythonQuotes ctermfg=59

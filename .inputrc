@@ -4,3 +4,6 @@ set editing-mode vi
 # Colored completions
 set colored-stats On
 set visible-stats On
+
+# Pressing 'h' twice will send escape.
+"hh": "\e"

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Source all files from .bash.d
+for f in ~/.bash.d/*; do
+   . $f
+done
+
 # Use vi mode.
 set -o vi
 export EDITOR=vi
@@ -56,6 +61,10 @@ export PATH=$PATH:~/bin/
 
 # Aliases.
 alias l="exa -l"
+alias du="ncdu"
+
+# Disable software flow control (XON/XOFF).
+stty -ixon
 
 # Function for reinstalling dotfiles.
 reinstall_dotfiles() {
