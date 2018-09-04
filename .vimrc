@@ -26,6 +26,9 @@ filetype indent on
 set list
 set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
 
+" Show line breaks
+set breakindentopt= sbr:...
+
 " Use system clipboard by default
 set clipboard=unnamed
 
