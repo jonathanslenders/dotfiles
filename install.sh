@@ -17,3 +17,8 @@ chmod +x ~/.bashrc.local
 
 # Reload .bashrc after installation.
 . ~/.bashrc
+
+# Generate SSH key pair.
+if [ ! -f ~/.ssh/id_rsa ]; then
+    ssh-keygen -t rsa -b 4096 -C "jonathan.slenders@$(hostname)"
+fi
