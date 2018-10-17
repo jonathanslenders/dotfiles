@@ -84,3 +84,7 @@ endif
 
 
 hi pythonQuotes ctermfg=59
+
+" Automatically resize panes when the host resizes. (Like pressing "C-w =").
+autocmd VimResized * wincmd =
+
