@@ -57,7 +57,14 @@ let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235
 
 " Molokai color scheme.
-colorscheme molokai
+"colorscheme molokai
+"colorscheme default
+
+" Use Solarized, dark, but don't set any background
+" color. Let tmux take care of background colors.
+colorscheme solarized8_low
+set background=dark
+highlight Normal ctermbg=none
 
 " Selection color.
 highlight Visual ctermbg=230
@@ -79,7 +86,7 @@ set viminfo=%,<800,'100,/100,:100,h,f0,n~/.vim/viminfo
 
 " Go back to the last cursor position after opening a file.
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 
@@ -88,3 +95,4 @@ hi pythonQuotes ctermfg=59
 " Automatically resize panes when the host resizes. (Like pressing "C-w =").
 autocmd VimResized * wincmd =
 
+hi pythonQuotes ctermfg=59
