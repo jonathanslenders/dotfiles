@@ -90,7 +90,12 @@ if has("autocmd")
 endif
 
 
-hi pythonQuotes ctermfg=59
+" Automatically move the current working directory to the opened file.
+set autochdir
+
+" When splitting, open the new window on the right/bottom.
+set splitright
+set splitbelow
 
 " Automatically resize panes when the host resizes. (Like pressing "C-w =").
 autocmd VimResized * wincmd =
