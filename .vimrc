@@ -4,6 +4,9 @@ set nocompatible
 " See: https://unix.stackexchange.com/questions/23389/how-can-i-set-vims-default-encoding-to-utf-8/23414
 set encoding=utf-8
 
+" Disable modelines (prevent arbitrary code execution via modelines).
+set nomodeline
+
 " Syntax highlighting on
 syntax on
 
