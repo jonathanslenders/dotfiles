@@ -16,6 +16,7 @@ sudo apt install sshpass
 
 #curl https://bootstrap.pypa.io/get-pip.py | python3
 
+sudo apt install tree
 
 # Better disk usage.
 sudo apt install ncdu
