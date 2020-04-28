@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 #
 # Install everything for development on an Ubuntu machine.
 #
@@ -6,7 +6,7 @@
 sudo apt update
 
 # Install Python stuff.
-sudo apt install python3 python3-pip python3-virtualenv virtualenvwrapper
+sudo apt install python3 python3-pip python3-virtualenv virtualenvwrapper python3-venv
 
 # vidir.
 sudo apt install moreutils
@@ -19,4 +19,4 @@ sudo apt install sshpass
 sudo apt install tree
 
 # Better disk usage.
-sudo apt install ncdu
+# sudo apt install ncdu
