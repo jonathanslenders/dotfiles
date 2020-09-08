@@ -1,2 +1,2 @@
 #!/bin/bash
-/mnt/c/Program\ Files/qemu/qemu-system-x86_64.exe -accel whpx  -m 4G -boot c -soundhw es1370 -net user,id=x,hostfwd=tcp::2222-:22  -net nic,model=rtl8139  -drive format=raw,file=c:\\Users\\jslender\\Desktop\\ubuntu-desktop-qemu.img -usbdevice tablet
+/mnt/c/Program\ Files/qemu/qemu-system-x86_64.exe -accel whpx  -m 4G -boot c -soundhw es1370 -net user,id=x,hostfwd=tcp::2222-:22  -net nic,model=rtl8139  -nographic -drive format=raw,file=d:\\ubuntu-desktop-qemu.img # -usbdevice tablet
