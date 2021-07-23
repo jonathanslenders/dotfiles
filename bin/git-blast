@@ -1,0 +1,109 @@
+#!/usr/bin/env python
+"""
+Shows git branches sorted by last commit date, noting when branch has been
+merged:
+
+    $ git blast
+    * master 33 minutes ago
+      some-feature 4 days ago [M]
+      dev-branch 4 days ago
+      legacy-branch 5 days ago [M]
+      another-feature 4 months ago
+"""
+
+from __future__ import print_function
+
+import os
+import argparse
+import subprocess as sp
+
+def get_terminal_size():
+    # copy-paste from StackOverflow: https://stackoverflow.com/a/3010495/71522
+    # No idea if this will work on Windows and friends; PRs very appreciated
+    import fcntl, termios, struct
+    th, tw, hp, wp = struct.unpack('HHHH',
+        fcntl.ioctl(0, termios.TIOCGWINSZ,
+        struct.pack('HHHH', 0, 0, 0, 0)))
+    return tw, th
+
+def xcall(cmd):
+    return sp.check_output(cmd).decode("utf-8")
+
+C_GREEN = '\033[0;32m'
+C_BLUE = '\033[0;34m'
+C_RESET = '\033[0;0m'
+C_BLACK = '\033[30;1m'
+
+parser = argparse.ArgumentParser(description="Show git branches, sorted by last commit date")
+parser.add_argument(
+    "-a", "--all", action="store_true",
+    help="Show all refs, not just local heads (equivilent to `git blast /`)",
+)
+parser.add_argument(
+    "-n", type=int, default=None, help="Number of branches to show (use 0 to disable)",
+)
+parser.add_argument("PATTERN", nargs="?", default="heads/", help=(
+    "Show refs matching PATTERN. Use `/` for all refs, tags/` for tags, "
+    "`remotes/` for all remote branches, and `origin` for branches on the "
+    "remote named `origin`. This is similar to the `<pattern>` option "
+    "of `git for-each-ref`, except it will automatically prefix remotes "
+    "with `remotes/`, and prefix everything with `refs/`."
+))
+
+def main(args):
+    if args.n is None and not args.all:
+        args.n = 30
+
+    cur_branch = xcall("git rev-parse --abbrev-ref HEAD".split()).strip()
+    merged_branches = set([
+        x.split()[-1] for x
+        in xcall("git branch -a --merged".split()).splitlines()
+    ])
+
+    pattern = ("/" if args.all else args.PATTERN).lstrip("/")
+    if pattern and "/" not in pattern:
+        remotes = set([x.strip() for x in xcall("git remote".split()).splitlines()])
+        if pattern in remotes:
+            pattern = "remotes/%s" %(pattern, )
+
+    by_date = xcall([
+        "git", "for-each-ref", "--sort=-committerdate",
+        "refs/%s" %(pattern, ),
+        "--format=%(refname)%09%(committerdate:relative)%09%(authorname) %(authoremail)%09%(contents:subject)",
+    ])
+    lines = by_date.splitlines()
+    term_width, _ = get_terminal_size()
+    for idx, line in enumerate(lines):
+        if args.n and idx >= args.n:
+            break
+
+        branch, _, rest = line.partition("\t")
+
+        # Take out the initial refs/ and possibly refs/heads/ from the branch
+        # name
+        _, _, branch = branch.partition("/")
+        if branch.startswith("heads/"):
+            _, _, branch = branch.partition("/")
+
+        output = ""
+        if branch == cur_branch:
+            output += "* %s%s" %(C_GREEN, branch)
+        else:
+            output += "  %s" %(branch, )
+        (date, author, subject) = rest.split("\t")
+        output += " %s%s%s" %(C_BLUE, date, C_RESET)
+        if branch in merged_branches and branch != cur_branch:
+            output += " [%sM%s]" %(C_GREEN, C_RESET)
+        output += " %s%s: %s" %(C_BLACK, author, subject)
+        if term_width and term_width < len(output):
+            output = output[:term_width - 3] + "..."
+        output += C_RESET
+        print(output)
+
+    if args.n and len(lines) >= args.n:
+        print("(... and %s more ...)" %(len(lines) - args.n))
+
+
+if __name__ == "__main__":
+    args = parser.parse_args()
+    main(args)
