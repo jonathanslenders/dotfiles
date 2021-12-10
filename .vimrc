@@ -103,4 +103,10 @@ set splitbelow
 " Automatically resize panes when the host resizes. (Like pressing "C-w =").
 autocmd VimResized * wincmd =
 
+" Tabline formatting and color.
+source ~/.vim/tabline.vim
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
 hi pythonQuotes ctermfg=59
