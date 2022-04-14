@@ -18,5 +18,8 @@ sudo apt install sshpass
 
 sudo apt install tree
 
+# *-dev packages for building Python core modules.
+sudo apt install liblzma-dev libbz2-dev libsqlite3-dev
+
 # Better disk usage.
 # sudo apt install ncdu
