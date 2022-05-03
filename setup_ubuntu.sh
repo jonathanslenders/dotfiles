@@ -6,7 +6,8 @@
 sudo apt update
 
 # Install Python stuff.
-sudo apt install python3 python3-pip python3-virtualenv virtualenvwrapper python3-venv
+# Not needed anymore. I'm using pyenv now.
+# sudo apt install python3 python3-pip python3-virtualenv virtualenvwrapper python3-venv
 
 # vidir.
 sudo apt install moreutils
@@ -19,7 +20,8 @@ sudo apt install sshpass
 sudo apt install tree
 
 # *-dev packages for building Python core modules.
-sudo apt install liblzma-dev libbz2-dev libsqlite3-dev
+# Required for pyenv.
+sudo apt install liblzma-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev
 
 # Better disk usage.
 # sudo apt install ncdu
