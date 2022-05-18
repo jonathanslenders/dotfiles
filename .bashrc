@@ -72,3 +72,7 @@ reinstall_dotfiles() {
     . ./install.sh
     popd > /dev/null
 }
+
+#export PATH=$PATH:/home/jonathan/.pyenv/bin
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
