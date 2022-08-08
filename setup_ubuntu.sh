@@ -21,7 +21,7 @@ sudo apt install tree
 
 # *-dev packages for building Python core modules.
 # Required for pyenv.
-sudo apt install build-essential liblzma-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev libssl-dev
+sudo apt install build-essential liblzma-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev libssl-dev libz-dev
 
 # Better disk usage.
 # sudo apt install ncdu
