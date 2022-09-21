@@ -55,9 +55,10 @@ set nojoinspaces
 set tildeop
 
 " Vertical lines.
-"set colorcolumn=80
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235
+set colorcolumn=80
+"let &colorcolumn=join(range(81,999),",")
+"highlight ColorColumn ctermbg=235
+highlight ColorColumn ctermbg=248
 
 " Molokai color scheme.
 "colorscheme molokai
@@ -66,11 +67,11 @@ highlight ColorColumn ctermbg=235
 " Use Solarized, dark, but don't set any background
 " color. Let tmux take care of background colors.
 colorscheme solarized8_low
-set background=dark
+"set background=dark
 highlight Normal ctermbg=none
 
 " Selection color.
-highlight Visual ctermbg=230
+" highlight Visual ctermbg=230
 
 " Don't erase the background color.
 " See: https://sunaku.github.io/vim-256color-bce.html
