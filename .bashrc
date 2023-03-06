@@ -76,3 +76,8 @@ reinstall_dotfiles() {
 #export PATH=$PATH:/home/jonathan/.pyenv/bin
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
+
+# Include Rust environment in Path.
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi

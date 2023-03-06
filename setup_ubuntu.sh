@@ -23,5 +23,8 @@ sudo apt install tree
 # Required for pyenv.
 sudo apt install build-essential liblzma-dev libbz2-dev libsqlite3-dev libreadline-dev libffi-dev libssl-dev libz-dev
 
+# pkgconfig is needed for compiling openssl stuff on Rust.
+sudo apt install pkgconf
+
 # Better disk usage.
 # sudo apt install ncdu
