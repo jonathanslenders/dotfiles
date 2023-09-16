@@ -61,7 +61,6 @@ export PATH=$PATH:~/bin/
 
 # Aliases.
 alias l="exa -l"
-alias du="ncdu"
 
 # Disable software flow control (XON/XOFF).
 stty -ixon
