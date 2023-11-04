@@ -29,5 +29,8 @@ sudo apt install pkgconf
 # Install packages for pyenv to include TK support.
 sudo apt install tk-dev libbz2-dev libreadline-dev libsqlite3-dev
 
+# Requirements for compiling neovim.
+sudo apt-get install ninja-build gettext cmake unzip curl
+
 # Better disk usage.
 # sudo apt install ncdu
