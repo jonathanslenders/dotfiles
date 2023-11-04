@@ -26,5 +26,8 @@ sudo apt install build-essential liblzma-dev libbz2-dev libsqlite3-dev libreadli
 # pkgconfig is needed for compiling openssl stuff on Rust.
 sudo apt install pkgconf
 
+# Install packages for pyenv to include TK support.
+sudo apt install tk-dev libbz2-dev libreadline-dev libsqlite3-dev
+
 # Better disk usage.
 # sudo apt install ncdu
