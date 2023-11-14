@@ -51,5 +51,9 @@ local setup = [[
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
     " hi pythonQuotes ctermfg=59
+
+    " Create splits on the right side.
+    set splitright
+    set splitbelow
 ]]
 vim.cmd(setup)
