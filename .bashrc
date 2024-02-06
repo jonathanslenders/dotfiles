@@ -80,3 +80,9 @@ reinstall_dotfiles() {
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Include neovim build in Path.
+if [ -d "$HOME/git/neovim/build/bin" ]; then
+    export PATH="$PATH:$HOME/git/neovim/build/bin"
+    alias vim=nvim
+fi

@@ -11,6 +11,7 @@ cp -r bin/* ~/bin/
 cp -r .vim/* ~/.vim/
 cp -r .bash.d/* ~/.bash.d/
 cp -r .dircolors/* ~/.dircolors/
+mkdir -p ~/.config/nvim/
 cp -r .config/nvim/* ~/.config/nvim/
 
 # Ensure .bashrc.local exists.
