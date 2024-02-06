@@ -61,6 +61,27 @@ require('lspconfig').typos_lsp.setup({
 require'lspconfig'.jedi_language_server.setup{
 }
 
+-- Rust
+require'lspconfig'.rust_analyzer.setup{
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+};
+
+
+-- Use the Vue language server. (Requires `npm install -g vls`).
+--require'lspconfig'.vuels.setup{
+--}
+
+-- Javascript formatting. (Requires `npm install -g @biomejs/biome`).
+require'lspconfig'.biome.setup{
+}
+
+
 -- Show LSP signatures.
 -- See: https://github.com/ray-x/lsp_signature.nvim/tree/master
 require('lsp_signature').setup({

@@ -32,8 +32,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.autochdir = true
 
 local setup = [[
-    colorscheme slate
-
     " Show tabs and trailing spaces.
     set list
     set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
@@ -52,8 +50,13 @@ local setup = [[
 
     " hi pythonQuotes ctermfg=59
 
+    " Automatically resize panes when the host resizes. (Like pressing "C-w ="). 
+    autocmd VimResized * wincmd =
+
     " Create splits on the right side.
     set splitright
     set splitbelow
 ]]
 vim.cmd(setup)
+
+
