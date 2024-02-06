@@ -18,6 +18,6 @@ require('nightfox').setup({
     }
 })
 
--- vim.cmd("colorscheme dayfox")
-vim.cmd("colorscheme vim")
+vim.cmd("colorscheme dayfox")
+-- vim.cmd("colorscheme vim")
 vim.opt.bg = 'light' -- set bg=light
