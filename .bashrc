@@ -20,7 +20,14 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
-export PS1="\[\e[0;32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
+get_virtualenv_prompt() {
+    if [ -n "$VIRTUAL_ENV_PROMPT" ]; then
+        echo "(${VIRTUAL_ENV_PROMPT}) "
+    fi
+}
+
+export PS1="\$(get_virtualenv_prompt)\[\e[0;32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Colors in "ip addr"
 alias ip="ip -color"
