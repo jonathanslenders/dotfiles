@@ -128,11 +128,59 @@ require('lazy').setup {
         config = function() end,
     },
     { 'savq/melange-nvim' },
+    { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
 }
 
 -- vim.cmd.colorscheme 'melange'
 vim.cmd.colorscheme 'lunaperche'
-vim.opt.bg = 'light' -- set bg=light
-vim.cmd([[
-    hi Normal  guibg=#f0eedd
-]])
+
+-- Toggle between dark/light mode.
+local isDarkPath = os.getenv 'HOME' .. '/.config/nvim/is-dark'
+
+function set_dark_mode()
+    vim.opt.bg = 'dark' -- set bg=dark
+
+    local file = io.open(isDarkPath, 'w')
+    file:write(tostring(true))
+    file:close()
+end
+function set_light_mode()
+    vim.opt.bg = 'light' -- set bg=light
+    vim.cmd [[
+        hi Normal  guibg=#f0eedd
+    ]]
+
+    local file = io.open(isDarkPath, 'w')
+    file:write(tostring(false))
+    file:close()
+end
+function isDark()
+    local file = io.open(isDarkPath, 'r')
+    if file then
+        local content = file:read '*all'
+        file:close()
+        return content == 'true'
+    end
+    return false
+end
+function toggle_dark_mode()
+    if isDark() then
+        set_light_mode()
+    else
+        set_dark_mode()
+    end
+end
+function set_dark_mode_according_to_file()
+    if isDark() then
+        set_dark_mode()
+    else
+        set_light_mode()
+    end
+end
+
+local timer = vim.uv.new_timer()
+timer:start(0, 3000, vim.schedule_wrap(set_dark_mode_according_to_file))
+
+vim.keymap.set({ 'n', 'i' }, '<C-s>', function()
+    toggle_dark_mode()
+end)
