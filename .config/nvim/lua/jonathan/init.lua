@@ -22,11 +22,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Lazy setup.
 require('lazy').setup {
-    --"folke/which-key.nvim",
-    --{ "folke/neoconf.nvim", cmd = "Neoconf" },
-    --"folke/neodev.nvim",
-
-    { -- LSP Configuration & Plugins
+    -- LSP Configuration & Plugins
+    {
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs and related tools to stdpath for neovim
@@ -61,7 +58,8 @@ require('lazy').setup {
             }
         end,
     },
-    { -- Fuzzy Finder (files, lsp, etc)
+    -- Fuzzy Finder (files, lsp, etc)
+    {
         'nvim-telescope/telescope.nvim',
         event = 'VimEnter',
         branch = '0.1.x',
@@ -122,13 +120,10 @@ require('lazy').setup {
     {
         'rose-pine/neovim',
         name = 'rose-pine',
-        config = function()
-            require 'jonathan.theme'
-        end,
+        config = function() end,
     },
+    { 'savq/melange-nvim' },
 }
 
---vim.cmd("colorscheme dayfox")
-vim.cmd 'colorscheme rose-pine-dawn'
--- vim.cmd("colorscheme vim")
+vim.cmd.colorscheme 'melange'
 vim.opt.bg = 'light' -- set bg=light

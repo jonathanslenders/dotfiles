@@ -1,6 +1,8 @@
-vim.opt.guicursor = '' -- Always use block cursor.
+-- Always use block cursor.
+vim.opt.guicursor = ''
 
-vim.opt.nu = true -- Show line numbers.
+-- Show line numbers.
+vim.opt.nu = true
 
 -- Tab options.
 vim.opt.tabstop = 4
@@ -44,10 +46,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 local setup = [[
-    " Show tabs and trailing spaces.
-    " set list
-    " set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
-
     " Show line breaks
     set breakindentopt= sbr:...
 
@@ -62,9 +60,5 @@ local setup = [[
 
     " Automatically resize panes when the host resizes. (Like pressing "C-w ="). 
     autocmd VimResized * wincmd =
-
-    " Create splits on the right side.
-    " set splitright
-    " set splitbelow
 ]]
 vim.cmd(setup)
