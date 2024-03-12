@@ -1,6 +1,6 @@
-vim.opt.guicursor = ""  -- Always use block cursor.
+vim.opt.guicursor = '' -- Always use block cursor.
 
-vim.opt.nu = true  -- Show line numbers.
+vim.opt.nu = true -- Show line numbers.
 
 -- Tab options.
 vim.opt.tabstop = 4
@@ -22,22 +22,20 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 3
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'yes'
 
 vim.opt.updatetime = 50
 
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 
 vim.opt.autochdir = true
-
 
 -- Displaying of whitespace.
 -- set list
 vim.opt.list = true
 -- set lcs=...
 vim.opt.listchars = { tab = '│┈', trail = '·', nbsp = '␣' }
-
 
 -- Configure how new splits should be opened
 -- set splitright
@@ -70,5 +68,3 @@ local setup = [[
     " set splitbelow
 ]]
 vim.cmd(setup)
-
-

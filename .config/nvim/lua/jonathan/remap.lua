@@ -5,7 +5,7 @@ local setup = [[
 vim.cmd(setup)
 
 -- Insert mode omni completion.
-vim.keymap.set("i", "<C-s>", "<C-x><C-o>")
+vim.keymap.set('i', '<C-s>', '<C-x><C-o>')
 
 -- Toggle signature.
 vim.keymap.set({ 'i' }, '<C-k>', function()
@@ -15,4 +15,3 @@ end)
 --vim.keymap.set({ 'i' }, '<C-o>', function()
 --     vim.lsp.buf.signature_help()
 --end)
-
