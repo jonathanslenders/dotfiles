@@ -31,10 +31,24 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.autochdir = true
 
+
+-- Displaying of whitespace.
+-- set list
+vim.opt.list = true
+-- set lcs=...
+vim.opt.listchars = { tab = '│┈', trail = '·', nbsp = '␣' }
+
+
+-- Configure how new splits should be opened
+-- set splitright
+vim.opt.splitright = true
+-- set splitbelow
+vim.opt.splitbelow = true
+
 local setup = [[
     " Show tabs and trailing spaces.
-    set list
-    set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
+    " set list
+    " set lcs=tab:│┈,trail:·,extends:>,precedes:<,nbsp:&
 
     " Show line breaks
     set breakindentopt= sbr:...
@@ -48,14 +62,12 @@ local setup = [[
     " Go back to the last cursor position after opening a file.
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    " hi pythonQuotes ctermfg=59
-
     " Automatically resize panes when the host resizes. (Like pressing "C-w ="). 
     autocmd VimResized * wincmd =
 
     " Create splits on the right side.
-    set splitright
-    set splitbelow
+    " set splitright
+    " set splitbelow
 ]]
 vim.cmd(setup)
 

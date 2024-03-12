@@ -84,19 +84,6 @@ require'lspconfig'.biome.setup{
 }
 
 
--- Show LSP signatures.
--- See: https://github.com/ray-x/lsp_signature.nvim/tree/master
-require('lsp_signature').setup({
-    -- Disable signature float by default, use <C-k> to show.
-    floating_window = false,
-
-    -- Show below cursor.
-    floating_window_above_cur_line = false,
-
-    -- Don't show the hint.
-    hint_enable = false,
-})
-
 vim.cmd([[
     " No border background around float.
     highlight FloatBorder  ctermfg=NONE ctermbg=NONE cterm=NONE
