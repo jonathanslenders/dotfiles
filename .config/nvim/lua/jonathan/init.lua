@@ -1,9 +1,14 @@
 require 'jonathan.set'
-require 'jonathan.remap'
 
 vim.g.netrw_banner = 0
 vim.g.loaded_matchparen = 1 -- disable built-in MatchParen.
 vim.g.netrw_keepdir = 0 -- Change working directory while navigating netrw.
+
+-- Set the leader key
+-- (This must happen before plugins are loaded, otherwise wrong leader will be
+-- used).
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 
 -- Install 'lazy' plugin manager.
 -- https://github.com/folke/lazy.nvim
@@ -125,5 +130,9 @@ require('lazy').setup {
     { 'savq/melange-nvim' },
 }
 
-vim.cmd.colorscheme 'melange'
+-- vim.cmd.colorscheme 'melange'
+vim.cmd.colorscheme 'lunaperche'
 vim.opt.bg = 'light' -- set bg=light
+vim.cmd([[
+    hi Normal  guibg=#f0eedd
+]])

@@ -61,4 +61,5 @@ local setup = [[
     " Automatically resize panes when the host resizes. (Like pressing "C-w ="). 
     autocmd VimResized * wincmd =
 ]]
+
 vim.cmd(setup)

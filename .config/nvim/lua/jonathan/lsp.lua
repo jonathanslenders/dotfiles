@@ -12,6 +12,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+        -- Also complete using Control-S
+        vim.keymap.set('i', '<C-s>', '<C-x><C-o>')
+
+        -- Toggle signature.
+        vim.keymap.set({ 'i' }, '<C-k>', function()
+            require('lsp_signature').toggle_float_win()
+        end)
+
+        --vim.keymap.set({ 'i' }, '<C-o>', function()
+        --     vim.lsp.buf.signature_help()
+        --end)
 
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
