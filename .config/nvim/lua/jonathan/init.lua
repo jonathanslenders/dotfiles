@@ -98,6 +98,43 @@ require('lazy').setup {
             vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
         end,
     },
+    -- Treesitter.
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                ensure_installed = {
+                    'bash',
+                    'c',
+                    'html',
+                    'lua',
+                    'markdown',
+                    'vim',
+                    'vimdoc',
+                    'python',
+                    'rust',
+                },
+                auto_install = true,
+                highlight = { enable = true },
+                indent = { enable = true },
+            }
+        end,
+    },
+    -- ChatGPT.
+    {
+        'jackMort/ChatGPT.nvim',
+        event = 'VeryLazy',
+        config = function()
+            require('chatgpt').setup()
+        end,
+        dependencies = {
+            'MunifTanjim/nui.nvim',
+            'nvim-lua/plenary.nvim',
+            'folke/trouble.nvim',
+            'nvim-telescope/telescope.nvim',
+        },
+    },
     -- Themes.
     {
         'EdenEast/nightfox.nvim',
