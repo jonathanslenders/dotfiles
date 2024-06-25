@@ -14,6 +14,10 @@ cp -r .dircolors/* ~/.dircolors/
 mkdir -p ~/.config/nvim/
 cp -r .config/nvim/* ~/.config/nvim/
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    cp .aerospace.toml ~/
+fi
+
 # Ensure .bashrc.local exists.
 touch ~/.bashrc.local
 chmod +x ~/.bashrc.local

@@ -34,7 +34,9 @@ alias ip="ip -color"
 
 # Colors in "ls".
 alias ls="ls -F --color=auto"
-eval $(dircolors ~/.dircolors/dircolors.molokai)
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    eval $(dircolors ~/.dircolors/dircolors.molokai)
+fi
 
 # Colors for "grep".
 alias grep='grep --color=auto'
@@ -47,6 +49,13 @@ alias grep='grep --color=auto'
 # Infinite history.
 export HISTSIZE=-1
 export HISTFILESIZE=-1
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # -1 doesn't seem to work on the bash version I currently have on Mac OS.
+    # 3.2.57
+    export HISTSIZE="1000000000"
+    export HISTFILESIZE="1000000000"
+fi
 
 # Set our custom pager. (pypager or most).
 export PAGER=~/.pager.sh
