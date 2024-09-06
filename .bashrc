@@ -75,6 +75,9 @@ alias vim="vim -u ~/.vimrc"
 # Add ~/bin to $PATH
 export PATH=$PATH:~/bin/
 
+# Add ~/.cargo/bin to $PATH (for `uv` for instance).
+export PATH=$PATH:~/.cargo/bin
+
 # Aliases.
 alias l="exa -l"
 
