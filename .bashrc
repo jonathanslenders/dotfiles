@@ -66,6 +66,13 @@ shopt -s histappend
 # Ignore system wide .vimrc.
 alias vim="vim -u ~/.vimrc"
 
+# If neovim is installed, make vim an alias for neovim.
+
+if command -v nvim &> /dev/null
+then
+    alias vim='nvim'
+fi
+
 # Include virtualenvwrapper.
 # . ~/bin/virtualenvwrapper.sh
 
