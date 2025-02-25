@@ -19,6 +19,12 @@
 [core]
     editor = vim
 
+[branch]
+    sort = -committerdate
+
+[init]
+    defaultBranch = main
+
 [include]
     path = ~/.gitconfig.local
 
