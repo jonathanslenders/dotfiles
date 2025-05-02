@@ -180,55 +180,28 @@ require('lazy').setup {
 }
 
 -- vim.cmd.colorscheme 'melange'
-vim.cmd.colorscheme 'lunaperche'
+-- vim.cmd.colorscheme 'lunaperche'
 
--- Toggle between dark/light mode.
-local isDarkPath = os.getenv 'HOME' .. '/.config/nvim/is-dark'
-
-function set_dark_mode()
-    vim.opt.bg = 'dark' -- set bg=dark
-
-    local file = io.open(isDarkPath, 'w')
-    file:write(tostring(true))
-    file:close()
-end
-function set_light_mode()
-    vim.opt.bg = 'light' -- set bg=light
-    vim.cmd [[
-        hi Normal  guibg=#f0eedd
-    ]]
-
-    local file = io.open(isDarkPath, 'w')
-    file:write(tostring(false))
-    file:close()
-end
-function isDark()
-    local file = io.open(isDarkPath, 'r')
-    if file then
-        local content = file:read '*all'
-        file:close()
-        return content == 'true'
-    end
-    return false
-end
-function toggle_dark_mode()
-    if isDark() then
-        set_light_mode()
+-- Function to change colorscheme based on 'bg'
+local function update_colorscheme()
+    if vim.o.background == "dark" then
+        vim.cmd("colorscheme rose-pine-moon")
+        -- vim.cmd("colorscheme melange")
     else
-        set_dark_mode()
-    end
-end
-function set_dark_mode_according_to_file()
-    if isDark() then
-        set_dark_mode()
-    else
-        set_light_mode()
+        vim.cmd("colorscheme lunaperche")
+        -- vim.cmd("colorscheme melange")
+        -- vim.cmd("colorscheme rose-pine")
+        -- vim.cmd [[
+        --     hi Normal  guibg=#f0eedd
+        -- ]]
     end
 end
 
-local timer = vim.uv.new_timer()
-timer:start(0, 3000, vim.schedule_wrap(set_dark_mode_according_to_file))
+-- Automatically update colorscheme when 'bg' changes
+vim.api.nvim_create_autocmd("OptionSet", {
+    pattern = "background",
+    callback = update_colorscheme,
+})
 
-vim.keymap.set({ 'n', 'i' }, '<C-s>', function()
-    toggle_dark_mode()
-end)
+-- Call the function once to set the initial theme
+update_colorscheme()
