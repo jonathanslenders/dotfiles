@@ -5,6 +5,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+-- Show inline diagnostics alongside the code.
+vim.diagnostic.config { virtual_text = true }
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -47,35 +50,35 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+require('lsp_signature').setup {
+    -- Disable signature float by default, use <C-k> to show.
+    floating_window = false,
+
+    -- Show below cursor.
+    floating_window_above_cur_line = false,
+
+    -- Don't show the hint.
+    hint_enable = false,
+}
+
+vim.lsp.enable 'stylua'
+
 -- Configure `ruff`.
--- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/ruff.lua
--- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
--- For the default config, along with instructions on how to customize the settings
-require('lspconfig').ruff.setup {
-    init_options = {
-        settings = {
-            -- Server settings should go here.
-            args = {},
-        },
-    },
-}
+vim.lsp.enable 'ruff'
 
 -- Use the Jedi language server for code completion and navigation to
 -- definitions. Requires: `pip install jedi-language-server`.
-require('lspconfig').typos_lsp.setup {
-    init_options = {
-        settings = {
-            diagnosticSeverity = 'Warning',
-        },
-    },
-}
+vim.lsp.enable('typos_lsp', {
+    diagnosticSeverity = 'Warning',
+})
 
 -- Use the Jedi language server for code completion and navigation to
 -- definitions. Requires: `pip install jedi-language-server`.
-require('lspconfig').jedi_language_server.setup {}
+vim.lsp.enable 'jedi_language_server'
+-- vim.lsp.enable('zuban', { })
 
 -- Rust
-require('lspconfig').rust_analyzer.setup {
+vim.lsp.enable('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {
             diagnostics = {
@@ -83,14 +86,10 @@ require('lspconfig').rust_analyzer.setup {
             },
         },
     },
-}
-
--- Use the Vue language server. (Requires `npm install -g vls`).
---require'lspconfig'.vuels.setup{
---}
+})
 
 -- Javascript formatting. (Requires `npm install -g @biomejs/biome`).
-require('lspconfig').biome.setup {}
+vim.lsp.enable 'biome'
 
 vim.cmd [[
     " No border background around float.
