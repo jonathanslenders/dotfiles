@@ -32,5 +32,8 @@ sudo apt install tk-dev libbz2-dev libreadline-dev libsqlite3-dev
 # Requirements for compiling neovim.
 sudo apt-get install ninja-build gettext cmake unzip curl
 
+# Timezone.
+sudo timedatectl set-timezone Europe/Brussels
+
 # Better disk usage.
 # sudo apt install ncdu
