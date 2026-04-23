@@ -26,7 +26,7 @@ get_virtualenv_prompt() {
     fi
 }
 
-export PS1="\$(get_virtualenv_prompt)\[\e[0;32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
+export PS1="\$(get_virtualenv_prompt)\[\e[0;32m\]\u@\h \[\e[34m\]\w\[\e[0m\]\[\e[36m\]\$(parse_git_branch)\[\e[0m\]\n $ "
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Colors in "ip addr"
