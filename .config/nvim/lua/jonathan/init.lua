@@ -4,14 +4,14 @@ vim.pack.add {
     { src = 'https://github.com/nvim-lua/plenary.nvim' },
     -- LSP configurations.
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/ray-x/lsp_signature.nvim' },
+    -- { src = 'https://github.com/ray-x/lsp_signature.nvim' },
     -- Status updates for LSP.
     { src = 'https://github.com/j-hui/fidget.nvim' },
     -- Oil file explorer.
     { src = 'https://github.com/stevearc/oil.nvim' },
     -- Copilot.
-    { src = 'https://github.com/github/copilot.vim' },
-    { src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim' },
+    --{ src = 'https://github.com/github/copilot.vim' },
+    --{ src = 'https://github.com/CopilotC-Nvim/CopilotChat.nvim' },
     -- Telescope.
     { src = 'https://github.com/nvim-telescope/telescope.nvim' },
     { src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
@@ -35,22 +35,23 @@ vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
 -- Configure treesitter.
-require('nvim-treesitter.configs').setup {
-    ensure_installed = {
-        'bash',
-        'c',
-        'html',
-        'lua',
-        'markdown',
-        'vim',
-        'vimdoc',
-        'python',
-        'rust',
-    },
-    auto_install = true,
-    highlight = { enable = true },
-    indent = { enable = true },
-}
+local ts = require('nvim-treesitter')
+ts.install({
+    'bash',
+    'c',
+    'html',
+    'lua',
+    'markdown',
+    'vim',
+    'vimdoc',
+    'python',
+    'javascript',
+    'css',
+    'vue',
+    'rust',
+    'pony',
+})
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 -- Configure file explorer.
 require('oil').setup {}
@@ -93,8 +94,10 @@ require 'jonathan.set'
 -- Function to change colorscheme based on 'bg'
 local function update_colorscheme()
     if vim.o.background == 'dark' then
-        -- vim.cmd("colorscheme rose-pine-moon")
+        --vim.cmd("colorscheme rose-pine-moon")
         vim.cmd.colorscheme 'melange'
+        -- vim.cmd.colorscheme 'nightfox'
+        vim.cmd("highlight Normal guibg=#000000 ctermbg=0")  -- Really black background
     else
         vim.cmd.colorscheme 'lunaperche'
     end

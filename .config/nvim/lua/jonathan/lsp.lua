@@ -50,16 +50,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-require('lsp_signature').setup {
-    -- Disable signature float by default, use <C-k> to show.
-    floating_window = false,
-
-    -- Show below cursor.
-    floating_window_above_cur_line = false,
-
-    -- Don't show the hint.
-    hint_enable = false,
-}
+-- require('lsp_signature').setup {
+--     -- Disable signature float by default, use <C-k> to show.
+--     floating_window = false,
+-- 
+--     -- Show below cursor.
+--     floating_window_above_cur_line = false,
+-- 
+--     -- Don't show the hint.
+--     hint_enable = false,
+-- }
 
 vim.lsp.enable 'stylua'
 
@@ -76,6 +76,7 @@ vim.lsp.enable('typos_lsp', {
 -- definitions. Requires: `pip install jedi-language-server`.
 vim.lsp.enable 'jedi_language_server'
 -- vim.lsp.enable('zuban', { })
+-- vim.lsp.enable 'ty'
 
 -- Rust
 vim.lsp.enable('rust_analyzer', {
@@ -90,6 +91,9 @@ vim.lsp.enable('rust_analyzer', {
 
 -- Javascript formatting. (Requires `npm install -g @biomejs/biome`).
 vim.lsp.enable 'biome'
+
+-- Pony
+vim.lsp.enable 'pony_lsp'
 
 vim.cmd [[
     " No border background around float.
